@@ -1,0 +1,35 @@
+{
+  "name": "Image",
+  "base": "Model",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "thumbnailUrl": {
+      "type": "string"
+    },
+    "originalUrl": {
+      "type": "string",
+      "required": true
+    },
+    "mediumUrl": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "product": {
+      "type": "belongsTo",
+      "model": "Product",
+      "foreignKey": "productId"
+    }
+  },
+  "acls": [
+  ],
+  "methods": {}
+}

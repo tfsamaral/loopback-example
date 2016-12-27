@@ -1,0 +1,32 @@
+{
+  "name": "Brand",
+  "plural": "Brands",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "strict": true,
+  "options": {},
+  "mixins": {
+    "SoftDelete": true,
+    "TimeStamp": {
+      "silenceWarnings": true,
+      "validateUpsert": true,
+      "required": false
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [
+
+  ],
+  "methods": {}
+}

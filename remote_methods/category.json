@@ -1,0 +1,36 @@
+[
+  {
+    "handler": "uploadImage",
+    "options": {
+      "description": "Upload one mage to associate to the category",
+      "http": {
+        "path": "/:id/image",
+        "verb": "post"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        },
+        {
+          "arg": "id",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      }
+    }
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "handler": "upload",
+    "description": "Uploads a file",
+    "options": {
+      "http": {
+        "path": "/:container/upload",
+        "verb": "post"
+      },
+      "accepts": [
+        {
+          "arg": "itemType",
+          "type": "string"
+        },
+        {
+          "arg": "container",
+          "type": "string"
+        },
+        {
+          "arg": "containerId",
+          "type": "string"
+        },
+        {
+          "arg": "containerType",
+          "type": "string"
+        },
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "returns": {
+        "root": true,
+        "arg": "fileObject",
+        "type": "object"
+      }
+    }
+  }
+]

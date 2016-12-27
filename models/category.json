@@ -1,0 +1,48 @@
+{
+  "name": "Category",
+  "plural": "Categories",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "strict": true,
+  "options": {},
+  "mixins": {
+    "SoftDelete": true,
+    "TimeStamp": {
+      "silenceWarnings": true,
+      "validateUpsert": true,
+      "required": false
+    }
+  },
+  "properties": {
+    "importerId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string"
+    },
+    "image": "string",
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "subCategories": {
+      "type": "hasMany",
+      "model": "Category",
+      "foreignKey": "parentCategoryId"
+    },
+    "parentCategory": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "parentCategoryId"
+    }
+  },
+  "acls": [
+  ],
+  "methods": {}
+}

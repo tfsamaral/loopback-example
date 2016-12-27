@@ -1,0 +1,50 @@
+{
+  "name": "Review",
+  "plural": "Reviews",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "strict": true,
+  "options": {},
+  "mixins": {
+    "SoftDelete": true,
+    "Importer": {
+      "file": true
+    },
+    "TimeStamp": {
+      "silenceWarnings": true,
+      "validateUpsert": true,
+      "required": false
+    }
+  },
+  "scope": {
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "rating": {
+      "type": "number",
+      "required": true
+    },
+    "comment": {
+      "type": "string",
+      "required": true
+    },
+    "approved": {
+      "type": "boolean",
+      "default": false
+    },
+    "userId": {
+      "type": "string",
+      "defaultFn": "uuid"
+    }
+  },
+  "validations": [],
+  "relations": {
+   
+  },
+  "acls": [
+  ],
+  "methods": {}
+}

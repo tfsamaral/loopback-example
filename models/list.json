@@ -1,0 +1,32 @@
+{
+  "name": "List",
+  "plural": "Lists",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "strict": true,
+  "options": {},
+  "mixins": {
+    "SoftDelete": true,
+    "TimeStamp": {
+      "silenceWarnings": true,
+      "validateUpsert": true,
+      "required": false
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "options": {
+      "type": "array",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [
+  ],
+  "methods": {}
+}

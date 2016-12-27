@@ -1,0 +1,79 @@
+{
+  "name": "requestLog",
+  "description": [
+    "Holds a log for all API requests made",
+    "ACL rules are set to allow everyone to insert into log, but only users in 'Admin' Role can view log"
+  ],
+  "plural": "request-log",
+  "http": {
+    "path": "/log"
+  },
+  "base": "PersistedModel",
+  "strict": false,
+  "properties": {
+    "userId": {
+      "type": "String",
+      "description": "Id of the user who performed the request. Can be empty",
+      "default": "anonymous",
+      "index": true
+    },
+    "duration": {
+      "type": "Number",
+      "description": "Request duration in ms"
+    },
+    "requestTime": {
+      "type": "Date",
+      "description": "Full date of when the request occurred"
+    },
+    "requestUrl": {
+      "type": "String",
+      "description": "Which URL was request. Stores the full URL",
+      "index": true
+    },
+    "requestMethod": {
+      "type": "String",
+      "description": "HTTP method used in this request"
+    },
+    "requestBody": {
+      "type": "Object",
+      "description": "Request body. Should be a json with all request parameters and headers"
+    },
+    "responseCode": {
+      "type": "Number",
+      "description": "HTTP Status code, used in the response",
+      "index": true
+    },
+    "responseBody": {
+      "type": "Object",
+      "description": "Full response object. Should be a json object"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "logViewer",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {},
+  "indexes": {
+    "log_idx_user": {
+      "user_id": 1
+    },
+    "log_idx_url": {
+      "request_url": 1
+    },
+    "log_idx_response_code": {
+      "response_code": 1
+    }
+  }
+}
