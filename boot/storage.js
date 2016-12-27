@@ -41,28 +41,6 @@ let storageSetup = {
     app.use(multer({storage: storage}).any());
     // app.use(multer({dest: path.join(__dirname, '../../.data/temp')}).single('image'));
   },
-  /*setupFileNames: function (app) {
-   const FILENAME_PATTERN = '%MODEL%.%DATE%.%FILENAME%';
-   app.dataSources.storage.connector.getFilename = function (file, req, res) {
-
-   let modelName = req.remotingContext.methodString.split('.')[0].toLowerCase();
-   let modelCode = storageSetup.assembleModelCodeName(req.params, modelName);
-   let originalFilename = file.name;
-   let parts = originalFilename.split('.');
-   let extension = parts[parts.length - 1];
-
-   // Remove extension from filename parts
-   parts.pop();
-
-   let newFilename = FILENAME_PATTERN
-   //.replace('%MODEL%', modelCode)
-   .replace('%DATE%', (new Date()).getTime().toString())
-   .replace('%FILENAME%', parts.join('.'));
-
-   newFilename = modelCode + '-' + crypto.createHash('md5').update(newFilename).digest('hex');
-   return newFilename + '.' + extension;
-   };
-   },*/
   setupFileNames: function (app) {
     app.dataSources.storage.connector.getFilename = function (file, req, res) {
 
